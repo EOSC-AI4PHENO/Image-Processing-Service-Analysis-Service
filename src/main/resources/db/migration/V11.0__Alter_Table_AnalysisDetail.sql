@@ -1,0 +1,1 @@
+alter table public."AnalysisDetail" add column if not exists "imageCreatedAt" TIMESTAMP WITHOUT TIME ZONE null;

@@ -1,0 +1,2 @@
+ALTER TABLE "public"."AnalysisDetail"
+    ADD COLUMN IF NOT EXISTS "isCashed" BOOLEAN DEFAULT FALSE;

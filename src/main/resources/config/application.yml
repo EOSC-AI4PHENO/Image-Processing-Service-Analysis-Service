@@ -1,0 +1,59 @@
+app:
+  schedule:
+    download-file-from-fedora-schedule: true
+    send-detail-to-analysis-schedule: true
+    download-detail-to-analysis-schedule: false
+    verify-image-schedule: true
+
+server:
+  port: 6701
+  error:
+    include-message: always
+
+logging:
+  level:
+    ROOT: INFO
+    com:
+      siseth:
+        analysis: DEBUG
+    org:
+      hibernate:
+        SQL: INFO
+  file:
+    name: logs/analysis.log
+
+springdoc:
+  api-docs:
+    path: /api/image-processing/analysis/v3/api-docs
+
+eureka:
+  client:
+    fetchRegistry: true
+    registerWithEureka: true
+    serviceUrl:
+      defaultZone: http://localhost:8761/eureka
+  instance:
+    preferIpAddress: true
+    hostname: localhost
+spring:
+  application:
+    name: analysis-service
+  datasource:
+    url: jdbc:postgresql://10.0.5.230:5432/analysis
+    username: postgres
+    password: postgres
+    driver-class-name: org.postgresql.Driver
+  jpa:
+    hibernate:
+      ddl-auto: validate
+      database: postgresql
+      naming:
+        physical-strategy: org.hibernate.boot.model.naming.PhysicalNamingStrategyStandardImpl
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.PostgreSQLDialect
+    show-sql: false
+  jackson:
+    serialization:
+      write-dates-as-timestamps: false
+    time-zone: Europe/Warsaw

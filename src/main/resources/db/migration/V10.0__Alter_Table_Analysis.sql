@@ -1,0 +1,1 @@
+alter table public."Analysis" add column if not exists "incremental" BOOLEAN null;
